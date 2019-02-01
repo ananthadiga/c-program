@@ -1,0 +1,66 @@
+#include<stdio.h>
+struct fraction
+{
+        int num;
+        int den;
+};
+
+int compute(int num,int den,int n)
+{
+  int j,lcm=1,gcd,i,u=0;
+ for(i=0;i<n;i++)
+        {
+
+          lcm=den[i]*lcm;
+        }
+  for(i=0;i<n;i++)
+  for(j=0;j<n;i++)
+        {
+                if(i!=j)
+                {
+                        num[i]=num[i]*den[j];
+
+                }
+        }
+  for(i=0;i<n;i++)
+  u=u+num[i];
+  for(i=1;i<=u&&i<=lcm;i++)
+        {
+                if(u%i==0 && lcm%i==0)
+                        {
+                                gcd=i;
+                        }
+        }
+  u=u/gcd;
+  lcm=lcm/gcd;
+  printf("num/den= %d/%d \n",u,lcm);
+   return 0;
+}
+
+
+
+int main()
+{
+        struct fraction s[10];
+        int i,n;
+        printf(" enter number of fractions ");
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+
+                printf(" enter numarator %d and denominator %d ",i+1,i+1);
+                scanf("%d %d",&s[i].num,&s[i].den);
+        }
+        for(i=0;i<n;i++)
+        compute(s[i].num,s[i].den,n);
+
+}
+
+
+
+
+
+
+
+
+
